@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Thymeleaf Test Page</title>
+</head>
+<body>
+    <!-- IF -->
+	<div th:if="${user}">
+        <h1 th:object="${user}">Thymeleaf Test : <span th:text="|*{uname}|"/></h1>
+        <h3>Thymeleaf Test2 : <span th:text="${user.uname}"/></h3>
+        <div th:switch="${user.uname}"> 
+	        <p th:case="'admin'">User is an administrator</p>
+	        <p th:case="${uname}">User is a manager!!!!!!!!!!!!!</p>
+	        <p th:case="*">User is some other thing</p> 
+	    </div>
+	</div>
+	<!-- ELSE -->
+	<div th:unless="${user}">
+	   <h1>Thymeleaf Test : Guest</h1>
+	</div>
+    
+    <ul>
+        <li th:each="data: ${users}" th:text="${data}"></li>
+        <li th:each="data: ${users}" th:text="${data.uid} + '. ' + ${data.uname}"></li>
+    </ul>
+    
+    <div>
+        <a th:href="@{http://localhost:9090/hello}">HELLO</a> |
+        <a th:href="@{http://localhost:9090/hello2}">HELLO2</a>
+    </div>
+    
+    <p th:text="'Name: ' + ${name}"></p>
+    <form method="POST" action="korean">
+        <input type="text" name="name" value="세종대왕" />
+        <button type="submit">KOREAN</button>
+    </form>
+    
+    
+</body>
+</html>
