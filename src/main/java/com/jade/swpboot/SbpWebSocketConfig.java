@@ -10,7 +10,7 @@ import com.jade.swpboot.handler.ReplyEchoHandler;
 @Configuration
 @EnableWebSocket
 public class SbpWebSocketConfig implements WebSocketConfigurer {
-
+  
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 //		registry.addHandler(new ReplyEchoHandler(), "/replyEcho").setAllowedOrigins("*"); // pure websocket
